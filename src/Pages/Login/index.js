@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { TextField, Button } from "@mui/material";
 import React, { useState } from "react";
-import {getAuth} from "firebase/auth";
+import {auth} from "../../firebase";
 import { Container, Box } from "@mui/system";
 
 import "./Login.css";
@@ -15,9 +15,9 @@ function App() {
   const login = async () => {
     try {
       const user = await createUserWithEmailAndPassword(auth,Email, Password);
-      console.log(user);
+     alert(user);
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   };
   return (
@@ -49,7 +49,7 @@ function App() {
           ></TextField>
         </Box>
         <Button onClick={login} variant="contained" color="primary" fullWidth>
-          submit
+          Login
         </Button>
       </Container>
     </div>
